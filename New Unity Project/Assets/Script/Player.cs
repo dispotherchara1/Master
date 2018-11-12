@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     void Start()
     {
         Pc = this.gameObject;
+        playvec.x = Pc.transform.position.x;
+        playvec.y = Pc.transform.position.y;
     }
 
     // Update is called once per frame
@@ -23,7 +25,15 @@ public class Player : MonoBehaviour {
         //入力が0でなければ動く.
         if (InputDirection.magnitude > 0)
         {
-            Pc.transform.position = new Vector2(Pc.transform.position.x + (InputDirection.x/20), Pc.transform.position.y+0/*InputDirection.y*/);
+            Pc.transform.position = new Vector2(playvec.x + (InputDirection.x/20), playvec.y+0/*InputDirection.y*/);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            Pc.transform.position = new Vector2(playvec.x -= Speed,playvec.y);
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            Pc.transform.position = new Vector2(playvec.x += Speed, playvec.y);
         }
     }
     
