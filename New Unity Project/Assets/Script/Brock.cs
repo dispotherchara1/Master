@@ -21,8 +21,11 @@ public class Brock : MonoBehaviour {
     {
         if (a == true)
         {
-            MainSpriteRenderer.sprite = BrackSprite;
-            col.enabled = true;
+            if (MainSpriteRenderer == WhiteSprite)
+            {
+                MainSpriteRenderer.sprite = BrackSprite;
+                col.enabled = true;
+            }
         }
     }
     public void Whitecor(bool a)

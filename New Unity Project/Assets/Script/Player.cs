@@ -25,7 +25,6 @@ public class Player : MonoBehaviour {
         {
             Pc.transform.position = new Vector2(Pc.transform.position.x + (InputDirection.x/20), Pc.transform.position.y+0/*InputDirection.y*/);
         }
-        //else { Pc.transform.position = new Vector2(0, 0); }
-        //Debug.Log(InputDirection.x + " , " + InputDirection.y);
     }
+    
 }

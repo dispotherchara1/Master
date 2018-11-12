@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Brock.cs" />
      <Compile Include="Assets\Script\CriateStage.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Player.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/user/Documents/Master/New Unity Project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
