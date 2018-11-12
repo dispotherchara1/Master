@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-
+    float interval = 0.0f;
 
     GameObject gameObject;
     List<GameObject> gameObjects = new List<GameObject>();
@@ -22,9 +22,12 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.A))
+
+        interval += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.A)&&interval>=5.0f)
         {
             change();
+            interval = 0.0f;
         }
 	}
     public void change()

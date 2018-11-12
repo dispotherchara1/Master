@@ -12,7 +12,6 @@ public class Player : MonoBehaviour {
     {
         Pc = this.gameObject;
         playvec.x = Pc.transform.position.x;
-        playvec.y = Pc.transform.position.y;
     }
 
     // Update is called once per frame
@@ -29,11 +28,13 @@ public class Player : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Pc.transform.position = new Vector2(playvec.x -= Speed,playvec.y);
+            playvec.y = Pc.transform.position.y;
+            Pc.transform.position = new Vector2(playvec.x -= Speed,playvec.y+=0);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            Pc.transform.position = new Vector2(playvec.x += Speed, playvec.y);
+            playvec.y = Pc.transform.position.y;
+            Pc.transform.position = new Vector2(playvec.x += Speed, playvec.y+=0);
         }
     }
     
