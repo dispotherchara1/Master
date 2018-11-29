@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public Animator animator;
     GameObject Pc;
     Vector2 playvec;
     public float Speed = 0.05f;
+    bool move = false;
     // Use this for initialization
     void Start()
     {
         Pc = this.gameObject;
         playvec.x = Pc.transform.position.x;
+        animator = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,17 +28,34 @@ public class Player : MonoBehaviour {
         if (InputDirection.magnitude > 0)
         {
             Pc.transform.position = new Vector2(playvec.x + (InputDirection.x/20), playvec.y+0/*InputDirection.y*/);
+            animator.SetBool("Walk", true);
+            move = true;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            gameObject.transform.localScale = new Vector3(5, 5, 1);
             playvec.y = Pc.transform.position.y;
             Pc.transform.position = new Vector2(playvec.x -= Speed,playvec.y+=0);
+            animator.SetBool("Walk", true);
+            move = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            gameObject.transform.localScale=new Vector3(-5, 5, 1);
             playvec.y = Pc.transform.position.y;
             Pc.transform.position = new Vector2(playvec.x += Speed, playvec.y+=0);
+            animator.SetBool("Walk", true);
+            move = true;
         }
+        if (!Input.anyKey) { animator.SetBool("Walk", false); move = false; }
     }
     
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.transform.tag == "Xbox")
+        {
+           // if(move==true)
+        }
+    }
 }

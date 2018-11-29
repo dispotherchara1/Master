@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Xbox
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: brock
+    uniqueID: 3233765849
+    locked: 0
+  - name: player
+    uniqueID: 2376313869
     locked: 0
