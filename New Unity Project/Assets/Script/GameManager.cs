@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour {
     GameObject gameObject;
     List<GameObject> gameObjects = new List<GameObject>();
 
-    public bool brack = true;
-
+    public SpriteRenderer BGP;
     // Use this for initialization
     void Start ()
     {
@@ -30,9 +29,9 @@ public class GameManager : MonoBehaviour {
         interval += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.A)/*&&interval>=5.0f*/)
         {
-            if (brack != true) brack = true;
-            else brack = false;
             change();
+            if (BGP.color==Color.black) BGP.color=Color.white;
+            else BGP.color = Color.black;
             interval = 0.0f;
         }
 	}
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour {
         {
             Collider2D col2D = obj.GetComponent<Collider2D>();
             SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
-            if (brack == true)
+            if (BGP.color==Color.black)
             {
                 if (spriteRenderer.color == Color.white)
                 {
