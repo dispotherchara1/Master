@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
             gameObjects.Add(child.gameObject);
         }
         //
+        change();
     }
 
     // Update is called once per frame
@@ -29,9 +30,9 @@ public class GameManager : MonoBehaviour {
         interval += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.A)/*&&interval>=5.0f*/)
         {
-            change();
             if (BGP.color==Color.black) BGP.color=Color.white;
             else BGP.color = Color.black;
+            change();
             interval = 0.0f;
         }
 	}
@@ -43,28 +44,28 @@ public class GameManager : MonoBehaviour {
             SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
             if (BGP.color==Color.black)
             {
-                if (spriteRenderer.color == Color.white)
+                if (spriteRenderer.color == Color.black)
                 {
                     //spriteRenderer.color = Color.black;
-                    col2D.enabled = true;
+                    col2D.enabled = false;
                 }
                 else
                 {
                     //spriteRenderer.color = Color.white;
-                    col2D.enabled = false;
+                    col2D.enabled = true;
                 }
             }
             else
             {
-                if (spriteRenderer.color == Color.black)
+                if (spriteRenderer.color == Color.white)
                 {
                     //spriteRenderer.color = Color.black;
-                    col2D.enabled = true;
+                    col2D.enabled = false;
                 }
                 else
                 {
                     //spriteRenderer.color = Color.white;
-                    col2D.enabled = false;
+                    col2D.enabled = true;
                 }
             }
         }
