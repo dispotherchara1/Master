@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
     {
         Pc = this.gameObject;
         animator = this.gameObject.GetComponent<Animator>();
-        start = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        start = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);//自分が初めてぽｐした場所を保存
     }
 
     // Update is called once per frame
@@ -56,8 +56,16 @@ public class Player : MonoBehaviour {
 
     void Restart()
     {
-        gameObject.transform.position = start;
+        gameObject.transform.position =new Vector2 (start.x,start.y+3);
     } 
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "save")
+        {
+            start = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);//中間地点
+        }
+    }
     //void OnCollisionEnter2D(Collision2D col)
     //{
     //    if (col.transform.tag == "Xbox")
